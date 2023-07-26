@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import Navbar from "./Navbar";
 // interface IParallax {
 //   config: ConfigProp;
 //   horizontal: boolean;
@@ -27,6 +28,7 @@ export default function Mains() {
     <>
       {animationBoolianState && (
         <div className="keyframes__MainAnimation bg-orange-200 w-screen h-screen ">
+          <Navbar></Navbar>
           {/* <Parallax>
             <ParallaxLayer>
               <h1>welcome to my project</h1>
