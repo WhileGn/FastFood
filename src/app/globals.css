@@ -17,11 +17,78 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  background-color: white;
+}
+
+.keyframes__firsAnimationclass__parent {
+  animation: keyframes__firsAnimation__parent 3s;
+  animation-iteration-count: inherit;
+  /* background-color: wheat; */
+}
+@keyframes keyframes__firsAnimation__parent {
+  0% {
+    /* transform: scale(1); */
+    opacity: 0;
+    background-color: wheat !important;
+  }
+  20% {
+    background-color: wheat !important;
+  }
+
+  50% {
+    /* transform: scale(10); */
+    opacity: 1;
+    background-color: red !important;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.keyframes__firsAnimationclass {
+  animation: keyframes__firsAnimation 3s;
+  animation-iteration-count: inherit;
+  /* font-family: "Cabin Sketch", cursive; */
+  /* opacity: 0 !important; */
+}
+
+@keyframes keyframes__firsAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+.keyframes__MainAnimation {
+  animation: keyframes__MainAnimation 0.5s;
+  animation-iteration-count: inherit;
+}
+@keyframes keyframes__MainAnimation {
+  0% {
+    scale: 0.1;
+    opacity: 0.2;
+    transform: rotate(180deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
+  }
 }
