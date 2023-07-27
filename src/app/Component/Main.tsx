@@ -34,35 +34,45 @@ export default function Mains() {
     window.addEventListener("scroll", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
+  const MaincontentComponentVarible = (
+    <>
+      {" "}
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+    </>
+  );
   return (
     <>
       {animationBoolianState && (
-        <div className="keyframes__MainAnimation bg-orange-200 w-screen h-auto min-h-screen ">
-          <Navbar></Navbar>
-          {/* <MainContent></MainContent> */}
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
+        <div className="pt-1 keyframes__MainAnimation relative  bg-orange-200 w-screen h-auto min-h-screen ">
+          <div className="Main__Navbar">
+            <Navbar></Navbar>
+            {/* <MainContent></MainContent> */}
           </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
-          </div>
-          <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-            <MainContent></MainContent>
+          <div className="Main__ContentComponent grid justify-center mt-56">
+            {MaincontentComponentVarible}
           </div>
 
           {/* <Parallax>

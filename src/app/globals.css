@@ -132,3 +132,25 @@ body {
 }
 
 /* Navbar end */
+.__Content__ {
+  animation: __Content__animating 20s;
+  animation-iteration-count: infinite;
+  /* animation-delay: 2s; */
+}
+@keyframes __Content__animating {
+  0% {
+    background-color: rgb(220 38 38);
+  }
+  40% {
+    background-color: rgb(220 38 38);
+  }
+  50% {
+    background-color: rgb(234 179 8);
+  }
+  90% {
+    background-color: rgb(234 179 8);
+  }
+  100% {
+    background-color: rgb(220 38 38);
+  }
+}

@@ -22,7 +22,7 @@ export default function Navbar() {
   }, []);
   return (
     <>
-      <main className="Main_Navbar h-[5rem] bg-yellow-400  drop-shadow-2xl w-[96%] mx-auto grid translate-y-[1.5rem]  rounded-[20rem] grid-cols-3 justify-items-center items-center select-none ">
+      <main className="fixed z-50 right-[2%] left-[2%] Main_Navbar h-[5rem] bg-yellow-400  drop-shadow-2xl w-[96%] mx-auto grid translate-y-[1.5rem]  rounded-[20rem] grid-cols-3 justify-items-center items-center select-none ">
         <div
           // href={"Route/sandwich"}
           className="Main_Navbar__items __sandwich__"
