@@ -1,4 +1,5 @@
 "use client";
+import backgroundImage from "../public/mae-mu-IZ0LRt1khgM-unsplash.jpg";
 
 import { useEffect, useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -6,6 +7,7 @@ import Navbar from "./Navbar";
 import MainContent from "./MainContent";
 import { Transform } from "stream";
 import { transform } from "typescript";
+import { StaticImageData } from "next/image";
 // interface IParallax {
 //   config: ConfigProp;
 //   horizontal: boolean;
@@ -23,9 +25,14 @@ import { transform } from "typescript";
 // }
 export default function Mains() {
   const [animationBoolianState, setanimationBoolianState] = useState(false);
-  setTimeout(() => {
-    setanimationBoolianState(true);
-  }, 3000);
+
+  const [background, setbackground] = useState<string>();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setanimationBoolianState(true);
+    }, 3000);
+  }, []);
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
   console.log(offsetY);
@@ -63,10 +70,17 @@ export default function Mains() {
       </div>
     </>
   );
+  setTimeout(() => {
+    setbackground("background__images");
+  }, 5000);
+
   return (
     <>
       {animationBoolianState && (
-        <div className="pt-1 keyframes__MainAnimation relative  w-screen h-auto min-h-screen ">
+        <div
+          // style={styleState}
+          className={`pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
+        >
           <div className="Main__Navbar">
             <Navbar></Navbar>
             {/* <MainContent></MainContent> */}

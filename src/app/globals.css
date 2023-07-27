@@ -76,26 +76,32 @@ body {
     opacity: 0;
   }
 }
-.keyframes__MainAnimation {
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.221),
-      rgba(255, 255, 255, 0.21)
-    ),
-    url(public/mae-mu-IZ0LRt1khgM-unsplash.jpg);
+.background__images {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0)),
+    url(public/mae-mu-IZ0LRt1khgM-unsplash.jpg) !important ;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* background-position: 1%; */
-  box-shadow: 0px 0px 100px 20px inset black;
   background-size: 100%;
   background-position: 1%;
+}
+.keyframes__MainAnimation {
+  border: 3px solid black;
+  /* background-position: 1%; */
+  box-shadow: 0px 0px 100px 20px inset black;
+
   animation: keyframes__MainAnimation 0.5s;
   animation-iteration-count: inherit;
+
+  /* background-color: rgb(254 240 138) ; */
 }
 @keyframes keyframes__MainAnimation {
   0% {
     scale: 0.1;
-    opacity: 0.2;
-    transform: rotate(180deg);
+
+    /* opacity: 0.2; */
+
+    transform: rotate(200deg);
     border-radius: 20%;
   }
   80% {
@@ -108,7 +114,7 @@ body {
 /* Navbar start */
 
 .Main_Navbar {
-  animation: Main_Navbar__animating 2s;
+  animation: Main_Navbar__animating 2.5s;
   animation-iteration-count: inherit;
 }
 @keyframes Main_Navbar__animating {
@@ -124,7 +130,7 @@ body {
 }
 
 .Main_Navbar__items {
-  animation: Main_Navbar__items__animating 2.3s;
+  animation: Main_Navbar__items__animating 2.8s;
   animation-iteration-count: inherit;
   /* animation-delay: 2s; */
 }
