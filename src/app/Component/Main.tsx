@@ -66,7 +66,7 @@ export default function Mains() {
   return (
     <>
       {animationBoolianState && (
-        <div className="pt-1 keyframes__MainAnimation relative  bg-orange-200 w-screen h-auto min-h-screen ">
+        <div className="pt-1 keyframes__MainAnimation relative  w-screen h-auto min-h-screen ">
           <div className="Main__Navbar">
             <Navbar></Navbar>
             {/* <MainContent></MainContent> */}
