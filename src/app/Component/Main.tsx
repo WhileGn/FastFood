@@ -47,22 +47,22 @@ export default function Mains() {
       <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.2}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.3}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.4}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.5}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.6}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateX(${offsetY * 0.7}px)` }}>
         <MainContent></MainContent>
       </div>
       <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
@@ -72,7 +72,7 @@ export default function Mains() {
   );
   setTimeout(() => {
     setbackground("background__images");
-  }, 5000);
+  }, 2000);
 
   return (
     <>

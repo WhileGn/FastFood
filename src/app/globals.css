@@ -84,14 +84,24 @@ body {
   background-attachment: fixed;
   background-size: 100%;
   background-position: 1%;
+  animation: keyframes__background__images 3s;
+  animation-iteration-count: inherit;
+}
+@keyframes keyframes__background__images {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .keyframes__MainAnimation {
   border: 3px solid black;
   /* background-position: 1%; */
   box-shadow: 0px 0px 100px 20px inset black;
 
-  animation: keyframes__MainAnimation 0.5s;
-  animation-iteration-count: inherit;
+  /* animation: keyframes__MainAnimation 0.5s;
+  animation-iteration-count: inherit; */
 
   /* background-color: rgb(254 240 138) ; */
 }
@@ -157,10 +167,10 @@ body {
     rgba(220, 38, 38, 0.8),
     rgba(234, 178, 8, 0.7)
   ); */
-  border: 6px solid rgba(220, 38, 38, 0.9);
-  backdrop-filter: blur(10px);
+  /* border: 6px solid rgba(220, 38, 38, 0.9); */
+  backdrop-filter: blur(30px);
   background-color: rgba(220, 38, 38, 0.2);
-  box-shadow: 0px 0px 10px 0px red;
+  box-shadow: 0px 0px 20px 5px red;
 }
 @keyframes __Content__animating {
   0% {
