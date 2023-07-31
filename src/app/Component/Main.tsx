@@ -1,6 +1,6 @@
 "use client";
 import backgroundImage from "../public/mae-mu-IZ0LRt1khgM-unsplash.jpg";
-
+import mongo_API from "./../api/api_1";
 import { useEffect, useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Navbar from "./Navbar";
@@ -8,6 +8,7 @@ import MainContent from "./MainContent";
 import { Transform } from "stream";
 import { transform } from "typescript";
 import { StaticImageData } from "next/image";
+import { log } from "console";
 // interface IParallax {
 //   config: ConfigProp;
 //   horizontal: boolean;
@@ -35,7 +36,6 @@ export default function Mains() {
   }, []);
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
-  console.log(offsetY);
 
   useEffect(() => {
     window.addEventListener("scroll", handlerScroll);
@@ -44,28 +44,28 @@ export default function Mains() {
   const MaincontentComponentVarible = (
     <>
       {" "}
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+      <div style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
         <MainContent></MainContent>
       </div>
-      <div style={{ transform: `translateX(${offsetY * 0.2}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.3}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.4}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.5}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.6}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.7}px)` }}>
+      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
         <MainContent></MainContent>
       </div>
       <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+        <MainContent></MainContent>
+      </div>
+      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
         <MainContent></MainContent>
       </div>
     </>
@@ -73,6 +73,20 @@ export default function Mains() {
   setTimeout(() => {
     setbackground("background__images");
   }, 2000);
+  // const testfechdata = async function () {
+  //   const testfetch__data = await mongo_API();
+  //   console.log(testfetch__data);
+  // };
+  // testfechdata();
+  const dataFetchHandler = async function () {
+    const MainfetchData = await mongo_API();
+    const MainData = JSON.parse(MainfetchData);
+    console.log(MainfetchData);
+    console.log(MainData);
+  };
+  useEffect(() => {
+    dataFetchHandler();
+  }, []);
 
   return (
     <>

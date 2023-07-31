@@ -11,7 +11,6 @@ export default function Navbar() {
   const [navbaranimation, setnavbaranimation] = useState();
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
-  console.log(offsetY);
   if (offsetY > 20) {
   }
   if (offsetY < 20) {
