@@ -82,10 +82,12 @@ body {
     url(public/mae-mu-IZ0LRt1khgM-unsplash.jpg) !important ;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;
+  /* background-position: ; */
   background-position: 1%;
   animation: keyframes__background__images 3s;
   animation-iteration-count: inherit;
+  /* box-shadow: inset 0px 0px 300px 200px black !important; */
 }
 @keyframes keyframes__background__images {
   0% {
