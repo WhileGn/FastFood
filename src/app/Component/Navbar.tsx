@@ -11,17 +11,34 @@ export default function Navbar() {
   const [navbaranimation, setnavbaranimation] = useState();
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
-  if (offsetY > 20) {
-  }
-  if (offsetY < 20) {
-  }
+  console.log(offsetY);
+
   useEffect(() => {
     window.addEventListener("scroll", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
+  const [main__navbar__animation, setmain__navbar__animation] =
+    useState<any>(`w-[90%]
+    rounded-[20rem] right-[2%]
+    left-[2%] translate-y-[3rem]`);
+
+  useEffect(() => {
+    if (offsetY > 200) {
+      setmain__navbar__animation(`w-[95%]
+      rounded-[1.8rem] right-[0%]
+      left-[0%] translate-y-[1.2rem] bg-yellow-400 bg-opacity-70`);
+    } else if (offsetY < 200) {
+      setmain__navbar__animation(` w-[90%]
+      rounded-[20rem] right-[2%]
+      left-[2%]   translate-y-[3rem] bg-yellow-400`);
+    }
+  }, [offsetY]);
+
   return (
     <>
-      <main className="fixed z-50 right-[2%] left-[2%] Main_Navbar h-[5rem] bg-yellow-400  drop-shadow-2xl w-[96%] mx-auto grid translate-y-[1.5rem]  rounded-[20rem] grid-cols-3 justify-items-center items-center select-none ">
+      <main
+        className={`${main__navbar__animation} fixed z-50    duration-[1.5s]  Main_Navbar h-[5rem]   drop-shadow-2xl  mx-auto grid    grid-cols-3 justify-items-center items-center select-none `}
+      >
         <div
           // href={"Route/sandwich"}
           className="Main_Navbar__items __sandwich__"
