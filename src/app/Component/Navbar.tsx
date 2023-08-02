@@ -26,7 +26,7 @@ export default function Navbar() {
     if (offsetY > 200) {
       setmain__navbar__animation(`w-[95%]
       rounded-[1.8rem] right-[0%]
-      left-[0%] translate-y-[1.2rem] bg-yellow-400 bg-opacity-70`);
+      left-[0%] translate-y-[1.2rem] bg-yellow-300 bg-opacity-70`);
     } else if (offsetY < 200) {
       setmain__navbar__animation(` w-[90%]
       rounded-[20rem] right-[2%]
