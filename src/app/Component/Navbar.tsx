@@ -5,9 +5,16 @@ import image_1 from "./../public/static_img/pngimg.com - sandwich_PNG14.png";
 import image_2 from "./../public/static_img/92d75abef1c7523630339a2793eba5eb-pizza-color-stroke-slice.png";
 import image_3 from "./../public/static_img/pngfind.com-drinks-png-10229.png";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { type } from "os";
 
-export default function Navbar() {
+type NavbarType = {
+  refData: any;
+};
+const Navbar: React.FC<NavbarType> = function (props) {
+  const ref_img = props.refData;
+  // console.log(refimg);
+
   const [navbaranimation, setnavbaranimation] = useState();
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
@@ -34,6 +41,15 @@ export default function Navbar() {
       left-[2%]   translate-y-[3rem] bg-yellow-400`);
     }
   }, [offsetY]);
+  const handleClick_sandwich = () => {
+    ref_img.ref_sandwich.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleClick_pizza = () => {
+    ref_img.ref_pizza.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleClick_drink = () => {
+    ref_img.ref_drink.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -45,6 +61,7 @@ export default function Navbar() {
           className="Main_Navbar__items __sandwich__"
         >
           <Image
+            onClick={handleClick_sandwich}
             className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer"
             width={90}
             height={90}
@@ -57,6 +74,7 @@ export default function Navbar() {
           className="Main_Navbar__items __pizza__ hover:scale-150 duration-300 cursor-pointer"
         >
           <Image
+            onClick={handleClick_pizza}
             className="drop-shadow-2xl"
             width={80}
             height={80}
@@ -70,6 +88,7 @@ export default function Navbar() {
           className="Main_Navbar__items __drink__ mb-5"
         >
           <Image
+            onClick={handleClick_drink}
             className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer"
             width={70}
             height={70}
@@ -80,4 +99,6 @@ export default function Navbar() {
       </main>
     </>
   );
-}
+};
+
+export default Navbar;

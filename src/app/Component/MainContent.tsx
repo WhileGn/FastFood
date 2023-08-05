@@ -25,7 +25,7 @@ const MainContent: React.FC<entryValue> = function (props) {
     <>
       <div className=" God__content">
         <div className=" main__Content">
-          <div className=" __Content__  mt-28 h-[20rem] w-[30rem] rounded-[60px] grid items-center justify-items-center duration-300 ">
+          <div className=" __Content__  mb-28 h-[20rem] w-[30rem] rounded-[60px] grid items-center justify-items-center duration-300 ">
             <div
               className={`${roboto.className} Name__Content text-yellow-300 font-bold text-4xl`}
             >

@@ -1,13 +1,17 @@
 "use client";
+
+import image_1 from "./../public/static_img/pngimg.com - sandwich_PNG14.png";
+import image_2 from "./../public/static_img/92d75abef1c7523630339a2793eba5eb-pizza-color-stroke-slice.png";
+import image_3 from "./../public/static_img/pngfind.com-drinks-png-10229.png";
 import backgroundImage from "../public/mae-mu-IZ0LRt1khgM-unsplash.jpg";
 import mongo_API from "./../api/api_1";
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Navbar from "./Navbar";
 import MainContent from "./MainContent";
 import { Transform } from "stream";
 import { transform } from "typescript";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { log } from "console";
 // interface IParallax {
 //   config: ConfigProp;
@@ -83,6 +87,15 @@ export default function Mains() {
     </main>
   );
   const [component, setcomponent] = useState<any>();
+
+  const variable_sandwich: any = [];
+  const variable_pizza: any = [];
+  const variable_drink: any = [];
+
+  const [component_sandwich, setcomponent_sandwich] = useState<any>();
+  const [component_pizza, setcomponent_pizza] = useState<any>();
+  const [component_drink, setcomponent_drink] = useState<any>();
+
   const dataFetchHandler = async function () {
     setlodingState(true);
     const MainfetchData = await mongo_API();
@@ -92,21 +105,61 @@ export default function Mains() {
       );
     } else {
       const MainData = await JSON.parse(MainfetchData);
-      setcomponent(
-        MainData.map((data: any) => {
-          console.log(data);
-
+      MainData.map((datas: any) => {
+        const typeOfdata = datas.type;
+        if (typeOfdata == "sandwich") {
+          variable_sandwich.push(datas);
+        }
+        if (typeOfdata == "pizza") {
+          variable_pizza.push(datas);
+        }
+        if (typeOfdata == "drink") {
+          variable_drink.push(datas);
+        }
+      });
+      setcomponent_sandwich(
+        variable_sandwich.map((datas: any) => {
           return (
             <div>
-              <MainContent data={data}></MainContent>
+              <MainContent data={datas}></MainContent>
             </div>
           );
         })
       );
-      console.log(component);
+      setcomponent_pizza(
+        variable_pizza.map((datas: any) => {
+          return (
+            <div>
+              <MainContent data={datas}></MainContent>
+            </div>
+          );
+        })
+      );
+      setcomponent_drink(
+        variable_drink.map((datas: any) => {
+          return (
+            <div>
+              <MainContent data={datas}></MainContent>
+            </div>
+          );
+        })
+      );
 
-      console.log(MainfetchData);
-      console.log(MainData);
+      console.log(variable_drink);
+      console.log(variable_sandwich);
+      console.log(variable_pizza);
+
+      // setcomponent(
+      //   MainData.map((data: any) => {
+      //     const typeOfdata = data.type;
+
+      //     return (
+      //       <div>
+      //         <MainContent data={data}></MainContent>
+      //       </div>
+      //     );
+      //   })
+      // );
     }
 
     setlodingState(false);
@@ -165,6 +218,21 @@ export default function Mains() {
   // };
   // testfechdata();
 
+  const ref_sandwich: any = useRef(null);
+  const ref_pizza: any = useRef(null);
+  const ref_drink: any = useRef(null);
+  const refs = { ref_sandwich, ref_pizza, ref_drink };
+
+  // const handleClick_sandwich = () => {
+  //   ref_sandwich.current?.scrollIntoView({ behavior: "smooth" });
+  // };
+  // const handleClick_pizza = () => {
+  //   ref_pizza.current?.scrollIntoView({ behavior: "smooth" });
+  // };
+  // const handleClick_drink = () => {
+  //   ref_drink.current?.scrollIntoView({ behavior: "smooth" });
+  // };
+
   return (
     <>
       {animationBoolianState && (
@@ -173,13 +241,43 @@ export default function Mains() {
           className={`pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
         >
           <div className="Main__Navbar">
-            <Navbar></Navbar>
+            <Navbar refData={refs}></Navbar>
             {/* <MainContent></MainContent> */}
           </div>
-          <div className="Main__ContentComponent grid justify-center mt-56">
+          <div className="Main__ContentComponent grid justify-center mt-48">
             {lodingState && lodingVariable}
 
-            {!lodingState && component}
+            {!lodingState && (
+              <div className="Main__div__content grid justify-center">
+                <Image
+                  ref={ref_sandwich}
+                  className="Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
+                  width={400}
+                  height={400}
+                  src={image_1}
+                  alt="notFound"
+                ></Image>
+                {component_sandwich}
+                <Image
+                  ref={ref_pizza}
+                  className="Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
+                  width={400}
+                  height={400}
+                  src={image_2}
+                  alt="notFound"
+                ></Image>
+                {component_pizza}
+                <Image
+                  ref={ref_drink}
+                  className="Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
+                  width={400}
+                  height={400}
+                  src={image_3}
+                  alt="notFound"
+                ></Image>
+                {component_drink}
+              </div>
+            )}
           </div>
 
           {/* <Parallax>
