@@ -28,6 +28,30 @@ export default function Mains() {
   const [animationBoolianState, setanimationBoolianState] = useState(false);
 
   const [background, setbackground] = useState<string>();
+  const [lodingState, setlodingState] = useState<boolean>(false);
+  const [component, setcomponent] = useState<any>();
+  const dataFetchHandler = async function () {
+    setlodingState(true);
+    const MainfetchData = await mongo_API();
+    const MainData = await JSON.parse(MainfetchData);
+    setcomponent(
+      MainData.map((data: any) => {
+        return (
+          <div>
+            <MainContent data={data}></MainContent>
+          </div>
+        );
+      })
+    );
+    console.log(component);
+
+    console.log(MainfetchData);
+    console.log(MainData);
+    setlodingState(false);
+  };
+  useEffect(() => {
+    dataFetchHandler();
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,35 +65,35 @@ export default function Mains() {
     window.addEventListener("scroll", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
-  const MaincontentComponentVarible = (
-    <>
-      {" "}
-      <div style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-      <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-        <MainContent></MainContent>
-      </div>
-    </>
-  );
+  // const MaincontentComponentVarible = (
+  //   <>
+  //     {" "}
+  //     <div style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
+  //       <MainContent></MainContent>
+  //     </div>
+  //   </>
+  // );
   setTimeout(() => {
     setbackground("background__images");
   }, 2000);
@@ -78,15 +102,6 @@ export default function Mains() {
   //   console.log(testfetch__data);
   // };
   // testfechdata();
-  const dataFetchHandler = async function () {
-    const MainfetchData = await mongo_API();
-    const MainData = JSON.parse(MainfetchData);
-    console.log(MainfetchData);
-    console.log(MainData);
-  };
-  useEffect(() => {
-    dataFetchHandler();
-  }, []);
 
   return (
     <>
@@ -100,7 +115,7 @@ export default function Mains() {
             {/* <MainContent></MainContent> */}
           </div>
           <div className="Main__ContentComponent grid justify-center mt-56">
-            {MaincontentComponentVarible}
+            {component}
           </div>
 
           {/* <Parallax>

@@ -11,9 +11,7 @@ export default async function mongo_API() {
     .find()
     .toArray();
   console.log(MainData);
-  console.log("hellow");
-  // console.log(MainFechData);
-  // console.log("heloow oifjsadoijfoaisjfoisajdf");
+
   return JSON.stringify(MainData);
 }
 

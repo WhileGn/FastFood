@@ -12,6 +12,7 @@ export default function Navbar() {
   const [offsetY, setoffsetY] = useState(0);
   const handlerScroll = () => setoffsetY(window.pageYOffset);
   console.log(offsetY);
+  console.log(window);
 
   useEffect(() => {
     window.addEventListener("scroll", handlerScroll);
