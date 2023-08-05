@@ -79,7 +79,7 @@ body {
 .background__images {
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0)),
-    url(public/mae-mu-IZ0LRt1khgM-unsplash.jpg) !important ;
+    url(public/static_img/mae-mu-IZ0LRt1khgM-unsplash.jpg) !important ;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -162,29 +162,141 @@ body {
   }
 }
 
+/* .God__content {
+  perspective: 1000px;
+}
+.main__Content {
+  text-align: center;
+
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.God__content:hover .main__Content {
+  transform: rotateY(180deg);
+} */
 /* Navbar end */
 .__Content__ {
-  /* animation: __Content__animating 20s;
-  animation-iteration-count: infinite; */
-  /* animation-delay: 2s; */
-  /* background-image: linear-gradient(
-    rgba(220, 38, 38, 0.8),
-    rgba(234, 178, 8, 0.7)
-  ); */
-  /* border: 6px solid rgba(220, 38, 38, 0.9); */
-  backdrop-filter: blur(30px);
-  background-color: rgba(220, 38, 38, 0.2);
+  animation: first__loding__card__animation 0.7s;
+  animation-iteration-count: initial;
+
+  backdrop-filter: blur(20px);
+  background-color: rgba(220, 38, 38, 0);
   box-shadow: 0px 0px 20px 3px red;
-  /* transition: all 1s; */
 }
+
 .__Content__:hover {
   box-shadow: 0px 0px 30px 10px red;
-  /* backdrop-filter: blur(0px); */
+  /* transform: rotateY(180deg); */
+  backdrop-filter: blur(20px);
 }
-@keyframes __Content__animating {
+@keyframes first__loding__card__animation {
   0% {
+    opacity: 0;
   }
 
   100% {
+    opacity: 1;
+  }
+}
+
+/* lioding animating */
+
+.Main_loding_animation {
+  padding: 1.5em 0;
+}
+
+.ap {
+  width: 8em;
+  height: 16em;
+}
+.ap__ring {
+  stroke: hsla(var(--hue), 10%, 10%, 0.15);
+  transition: stroke 0.3s;
+}
+.ap__worm1,
+.ap__worm2 {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+.ap__worm1 {
+  animation-name: worm1;
+}
+.ap__worm2 {
+  animation-name: worm2;
+  visibility: hidden;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue), 10%, 10%);
+    --fg: hsl(var(--hue), 10%, 90%);
+  }
+  .ap__ring {
+    stroke: hsla(var(--hue), 10%, 90%, 0.1);
+  }
+}
+
+/* Animtions */
+@keyframes worm1 {
+  from {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: -87.96;
+  }
+  20% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 0;
+  }
+  60% {
+    stroke-dashoffset: -791.68;
+    visibility: visible;
+  }
+  60.1%,
+  to {
+    stroke-dashoffset: -791.68;
+    visibility: hidden;
+  }
+}
+@keyframes worm2 {
+  from,
+  60% {
+    stroke-dashoffset: -87.96;
+    visibility: hidden;
+  }
+  60.1% {
+    animation-timing-function: cubic-bezier(0, 0, 0.5, 0.75);
+    stroke-dashoffset: -87.96;
+    visibility: visible;
+  }
+  77% {
+    animation-timing-function: cubic-bezier(0.5, 0.25, 0.5, 0.88);
+    stroke-dashoffset: -340;
+    visibility: visible;
+  }
+  to {
+    stroke-dashoffset: -669.92;
+    visibility: visible;
+  }
+}
+.error__whenFetching {
+  font-size: 30px;
+  color: rgb(255, 81, 0);
+  font-weight: 700;
+  animation: error__whenFetching__animating 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes error__whenFetching__animating {
+  0% {
+    transform: translate(0px, 100px);
+    color: rgb(255, 81, 0);
+  }
+  50% {
+    transform: translate(0px, 0px);
+    color: blue;
+  }
+  100% {
+    transform: translate(0px, 100px);
+    color: rgb(255, 81, 0);
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 import backgroundImage from "../public/mae-mu-IZ0LRt1khgM-unsplash.jpg";
 import mongo_API from "./../api/api_1";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Navbar from "./Navbar";
 import MainContent from "./MainContent";
@@ -29,24 +29,86 @@ export default function Mains() {
 
   const [background, setbackground] = useState<string>();
   const [lodingState, setlodingState] = useState<boolean>(false);
+  const lodingVariable = (
+    <main className="Main_loding_animation">
+      <svg
+        className="ap"
+        viewBox="0 0 128 256"
+        width="128px"
+        height="256px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="ap-grad1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="hsl(123,90%,55%)" />
+            <stop offset="100%" stop-color="hsl(153,90%,55%)" />
+          </linearGradient>
+          <linearGradient id="ap-grad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="hsl(93,90%,55%)" />
+            <stop offset="50%" stop-color="hsl(123,90%,55%)" />
+            <stop offset="100%" stop-color="hsl(153,90%,55%)" />
+          </linearGradient>
+        </defs>
+        <circle
+          className="ap__ring"
+          r="56"
+          cx="64"
+          cy="192"
+          fill="none"
+          stroke="#ddd"
+          stroke-width="16"
+          stroke-linecap="round"
+        />
+        <circle
+          className="ap__worm1"
+          r="56"
+          cx="64"
+          cy="192"
+          fill="none"
+          stroke="url(#ap-grad1)"
+          stroke-width="16"
+          stroke-linecap="round"
+          stroke-dasharray="87.96 263.89"
+        />
+        <path
+          className="ap__worm2"
+          d="M120,192A56,56,0,0,1,8,192C8,161.07,16,8,64,8S120,161.07,120,192Z"
+          fill="none"
+          stroke="url(#ap-grad2)"
+          stroke-width="16"
+          stroke-linecap="round"
+          stroke-dasharray="87.96 494"
+        />
+      </svg>
+    </main>
+  );
   const [component, setcomponent] = useState<any>();
   const dataFetchHandler = async function () {
     setlodingState(true);
     const MainfetchData = await mongo_API();
-    const MainData = await JSON.parse(MainfetchData);
-    setcomponent(
-      MainData.map((data: any) => {
-        return (
-          <div>
-            <MainContent data={data}></MainContent>
-          </div>
-        );
-      })
-    );
-    console.log(component);
+    if (MainfetchData == "error") {
+      setcomponent(
+        <div className="error__whenFetching">plase chack network conection</div>
+      );
+    } else {
+      const MainData = await JSON.parse(MainfetchData);
+      setcomponent(
+        MainData.map((data: any) => {
+          console.log(data);
 
-    console.log(MainfetchData);
-    console.log(MainData);
+          return (
+            <div>
+              <MainContent data={data}></MainContent>
+            </div>
+          );
+        })
+      );
+      console.log(component);
+
+      console.log(MainfetchData);
+      console.log(MainData);
+    }
+
     setlodingState(false);
   };
   useEffect(() => {
@@ -115,7 +177,9 @@ export default function Mains() {
             {/* <MainContent></MainContent> */}
           </div>
           <div className="Main__ContentComponent grid justify-center mt-56">
-            {component}
+            {lodingState && lodingVariable}
+
+            {!lodingState && component}
           </div>
 
           {/* <Parallax>

@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import image_1 from "./../public/pngimg.com - sandwich_PNG14.png";
-import image_2 from "./../public/92d75abef1c7523630339a2793eba5eb-pizza-color-stroke-slice.png";
-import image_3 from "./../public/pngfind.com-drinks-png-10229.png";
+import image_1 from "./../public/static_img/pngimg.com - sandwich_PNG14.png";
+import image_2 from "./../public/static_img/92d75abef1c7523630339a2793eba5eb-pizza-color-stroke-slice.png";
+import image_3 from "./../public/static_img/pngfind.com-drinks-png-10229.png";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
