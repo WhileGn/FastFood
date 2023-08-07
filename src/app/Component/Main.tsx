@@ -223,22 +223,96 @@ export default function Mains() {
   const ref_drink: any = useRef(null);
   const refs = { ref_sandwich, ref_pizza, ref_drink };
 
-  // const handleClick_sandwich = () => {
-  //   ref_sandwich.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-  // const handleClick_pizza = () => {
-  //   ref_pizza.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-  // const handleClick_drink = () => {
-  //   ref_drink.current?.scrollIntoView({ behavior: "smooth" });
-  // };
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+    function handleViewportChange(event: any) {
+      setIsMobile(event.matches);
+    }
+
+    // Check initial viewport size
+    handleViewportChange(mediaQuery);
+
+    // Add listener for viewport changes
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
+  }, []);
+
+  const [windows__height, setwindows__height] = useState(0);
+  // const handlerScroll = () => setoffsetY(window.innerWidth);
+
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+  useEffect(() => {
+    window.addEventListener("", handlerScroll);
+    return () => window.removeEventListener("scroll", handlerScroll);
+  }, []);
+  // const handlerScroll = () => setoffsetY(window.pageYOffset);
+
+  const [Logosize, setLogosize] = useState<any>({
+    sandwich: {
+      with_size: 400,
+      height_size: 400,
+    },
+    ref_pizza: {
+      with_size: 370,
+      height_size: 370,
+    },
+    ref_drink: {
+      with_size: 350,
+      height_size: 350,
+    },
+  });
+
+  useEffect(() => {
+    if (isMobile) {
+      setLogosize({
+        sandwich: {
+          with_size: 300,
+          height_size: 300,
+        },
+        ref_pizza: {
+          with_size: 270,
+          height_size: 270,
+        },
+        ref_drink: {
+          with_size: 250,
+          height_size: 250,
+        },
+      });
+      console.log("imgwork");
+    } else {
+      setLogosize({
+        sandwich: {
+          with_size: 400,
+          height_size: 400,
+        },
+        ref_pizza: {
+          with_size: 370,
+          height_size: 370,
+        },
+        ref_drink: {
+          with_size: 350,
+          height_size: 350,
+        },
+      });
+    }
+    setwindows__height(window.innerWidth);
+  }, [isMobile]);
+  console.log(windows__height);
 
   return (
     <>
       {animationBoolianState && (
         <div
           // style={styleState}
-          className={`pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
+          className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
         >
           <div className="Main__Navbar">
             <Navbar refData={refs}></Navbar>
@@ -252,8 +326,8 @@ export default function Mains() {
                 <Image
                   ref={ref_sandwich}
                   className="Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
-                  width={400}
-                  height={400}
+                  width={Logosize.sandwich.with_size}
+                  height={Logosize.sandwich.height_size}
                   src={image_1}
                   alt="notFound"
                 ></Image>
@@ -261,8 +335,8 @@ export default function Mains() {
                 <Image
                   ref={ref_pizza}
                   className="Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
-                  width={400}
-                  height={400}
+                  width={370}
+                  height={370}
                   src={image_2}
                   alt="notFound"
                 ></Image>
@@ -270,8 +344,8 @@ export default function Mains() {
                 <Image
                   ref={ref_drink}
                   className="Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
-                  width={400}
-                  height={400}
+                  width={350}
+                  height={350}
                   src={image_3}
                   alt="notFound"
                 ></Image>

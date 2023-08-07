@@ -181,7 +181,7 @@ body {
   animation-iteration-count: initial;
 
   backdrop-filter: blur(20px);
-  background-color: rgba(220, 38, 38, 0);
+  /* background-color: rgba(220, 38, 38, 0); */
   box-shadow: 0px 0px 20px 3px red;
 }
 

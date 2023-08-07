@@ -25,17 +25,24 @@ const MainContent: React.FC<entryValue> = function (props) {
     <>
       <div className=" God__content">
         <div className=" main__Content">
-          <div className=" __Content__  mb-28 h-[20rem] w-[30rem] rounded-[60px] grid items-center justify-items-center duration-300 ">
+          <div
+            className=" __Content__   
+           mb-28 h-[20rem] p-4 w-[30rem] rounded-[60px] 
+           grid items-center justify-items-center duration-300  
+           mx-auto    max-[600px]:h-[10rem]  
+            max-[600px]:w-[20rem] "
+          >
             <div
-              className={`${roboto.className} Name__Content text-yellow-300 font-bold text-4xl`}
+              className={`${roboto.className} Name__Content
+               text-yellow-300 font-bold text-4xl max-[600px]:text-xl`}
             >
               {data.name}
             </div>
-            <div className="whatis__Content text-yellow-100 p-6  text-center">
+            <div className="whatis__Content text-yellow-100 p-6  text-center max-[600px]:text-sm">
               {" "}
               {data.about}
             </div>
-            <div className="price__Content text-orange-800 font-bold text-3xl">
+            <div className="price__Content text-orange-800 font-bold text-3xl max-[600px]:text-xl">
               {`${data.price} T`}
             </div>
           </div>
