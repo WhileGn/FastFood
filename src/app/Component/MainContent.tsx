@@ -23,14 +23,18 @@ const MainContent: React.FC<entryValue> = function (props) {
 
   return (
     <>
-      <div className=" God__content">
-        <div className=" main__Content">
+      <div className=" God__content Main__div__content__child">
+        <div className=" main__Content shadow-[0px_0px_20px_10px_black] rounded-[60px]">
           <div
             className=" __Content__   
+            shadow-[0px_0px_30px_10px_black_inset]
+            
            mb-28 h-[20rem] p-4 w-[30rem] rounded-[60px] 
-           grid items-center justify-items-center duration-300  
-           mx-auto    max-[600px]:h-[10rem]  
-            max-[600px]:w-[20rem] "
+           grid items-center justify-items-center duration-500  
+           mx-auto    max-[600px]:h-[14rem]  
+            
+            max-[600px]:w-[20rem] border-solid border-[8px] hover:border-[13px] border-[#FFEAEE]  hover:border-t-[#3F2E56] hover:border-b-[#0075F2]
+            hover:border-l-[#00F2F2] hover:border-r-[#7F675B] bg-gradient-to-tr from-[#0075f257] to-[#7f675b2d] hover:bg-[#453f783e] backdrop-blur-md "
           >
             <div
               className={`${roboto.className} Name__Content
@@ -38,7 +42,7 @@ const MainContent: React.FC<entryValue> = function (props) {
             >
               {data.name}
             </div>
-            <div className="whatis__Content text-yellow-100 p-6  text-center max-[600px]:text-sm">
+            <div className="whatis__Content text-[#FAF2A1] p-6  text-center max-[600px]:text-sm">
               {" "}
               {data.about}
             </div>

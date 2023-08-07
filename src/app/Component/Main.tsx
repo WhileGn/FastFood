@@ -325,7 +325,7 @@ export default function Mains() {
               <div className="Main__div__content grid justify-center">
                 <Image
                   ref={ref_sandwich}
-                  className="Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
+                  className="Main__div__content__child Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
                   width={Logosize.sandwich.with_size}
                   height={Logosize.sandwich.height_size}
                   src={image_1}
@@ -334,7 +334,7 @@ export default function Mains() {
                 {component_sandwich}
                 <Image
                   ref={ref_pizza}
-                  className="Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
+                  className="Main__div__content__child Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
                   width={370}
                   height={370}
                   src={image_2}
@@ -343,7 +343,7 @@ export default function Mains() {
                 {component_pizza}
                 <Image
                   ref={ref_drink}
-                  className="Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
+                  className="Main__div__content__child Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
                   width={350}
                   height={350}
                   src={image_3}
