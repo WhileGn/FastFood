@@ -323,32 +323,41 @@ export default function Mains() {
 
             {!lodingState && (
               <div className="Main__div__content grid justify-center">
-                <Image
-                  ref={ref_sandwich}
-                  className="Main__div__content__child Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
-                  width={Logosize.sandwich.with_size}
-                  height={Logosize.sandwich.height_size}
-                  src={image_1}
-                  alt="notFound"
-                ></Image>
+                <div className="Main__image__FastFood justify-self-center  duration-300">
+                  <Image
+                    ref={ref_sandwich}
+                    className=" Main__div__content__child Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
+                    width={Logosize.sandwich.with_size}
+                    height={Logosize.sandwich.height_size}
+                    src={image_1}
+                    alt="notFound"
+                  ></Image>
+                </div>
+
                 {component_sandwich}
-                <Image
-                  ref={ref_pizza}
-                  className="Main__div__content__child Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
-                  width={370}
-                  height={370}
-                  src={image_2}
-                  alt="notFound"
-                ></Image>
+                <div className="Main__image__FastFood justify-self-center  duration-300">
+                  <Image
+                    ref={ref_pizza}
+                    className=" Main__div__content__child Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
+                    width={370}
+                    height={370}
+                    src={image_2}
+                    alt="notFound"
+                  ></Image>
+                </div>
+
                 {component_pizza}
-                <Image
-                  ref={ref_drink}
-                  className="Main__div__content__child Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
-                  width={350}
-                  height={350}
-                  src={image_3}
-                  alt="notFound"
-                ></Image>
+                <div className="Main__image__FastFood justify-self-center  duration-300">
+                  <Image
+                    ref={ref_drink}
+                    className=" Main__div__content__child Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
+                    width={350}
+                    height={350}
+                    src={image_3}
+                    alt="notFound"
+                  ></Image>
+                </div>
+
                 {component_drink}
               </div>
             )}

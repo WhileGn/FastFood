@@ -34,7 +34,7 @@ const MainContent: React.FC<entryValue> = function (props) {
            mx-auto    max-[600px]:h-[14rem]  
             
             max-[600px]:w-[20rem] border-solid border-[8px] hover:border-[13px] border-[#FFEAEE]  hover:border-t-[#3F2E56] hover:border-b-[#0075F2]
-            hover:border-l-[#00F2F2] hover:border-r-[#7F675B] bg-gradient-to-tr from-[#0075f257] to-[#7f675b2d] hover:bg-[#453f783e] backdrop-blur-md "
+            hover:border-l-[#00F2F2] hover:border-r-[#9775fa] bg-gradient-to-tr from-[#0075f257] to-[#7f675b2d] hover:bg-[#453f783e] backdrop-blur-md "
           >
             <div
               className={`${roboto.className} Name__Content

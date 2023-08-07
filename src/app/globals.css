@@ -303,12 +303,16 @@ body {
 }
 
 .Main__div__content__child {
-  animation: 0.5s Main__div__content__child__animation;
+  animation: 0.8s Main__div__content__child__animation;
   animation-iteration-count: inherit;
 }
+
 @keyframes Main__div__content__child__animation {
   0% {
     scale: 0.1;
+  }
+  70% {
+    scale: 1.1;
   }
   100% {
     scale: 1;
@@ -317,19 +321,53 @@ body {
 
 /* scrollbar__animation ------------------------------------------- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+  background-color: #f08c00;
 }
 
 /* Styling the handle (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: #49cded;
+  border-radius: 10px;
+
+  /* padding: 10px; */
 }
 
 /* Styling the handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: #37a2bc;
+}
+
+.Main__sandwich__image,
+.Main__pizza__image,
+.Main__drink__image {
+  animation: Main__FoodImage__image 5s linear;
+  animation-iteration-count: infinite;
+}
+
+.Main__image__FastFood:hover {
+  scale: 1.1;
+}
+
+@keyframes Main__FoodImage__image {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+
+  100% {
+    transform: rotate(0px);
+  }
 }
