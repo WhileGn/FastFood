@@ -371,3 +371,7 @@ body {
     transform: rotate(0px);
   }
 }
+
+.Main__foter {
+  /* box-shadow: 1px 1px 100px 100px black; */
+}

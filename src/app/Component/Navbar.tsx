@@ -51,6 +51,77 @@ const Navbar: React.FC<NavbarType> = function (props) {
     ref_img.ref_drink.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+    function handleViewportChange(event: any) {
+      setIsMobile(event.matches);
+    }
+
+    // Check initial viewport size
+    handleViewportChange(mediaQuery);
+
+    // Add listener for viewport changes
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
+  }, []);
+  const [Logosize, setLogosize] = useState<any>({
+    sandwich: {
+      with_size: 90,
+      height_size: 90,
+    },
+    pizza: {
+      with_size: 80,
+      height_size: 80,
+    },
+    drink: {
+      with_size: 70,
+      height_size: 70,
+    },
+  });
+
+  useEffect(() => {
+    if (isMobile) {
+      setLogosize({
+        sandwich: {
+          with_size: 70,
+          height_size: 370,
+        },
+        pizza: {
+          with_size: 60,
+          height_size: 60,
+        },
+        drink: {
+          with_size: 50,
+          height_size: 50,
+        },
+      });
+      // console.log("imgwork");
+    } else {
+      setLogosize({
+        sandwich: {
+          with_size: 90,
+          height_size: 90,
+        },
+        pizza: {
+          with_size: 80,
+          height_size: 80,
+        },
+        drink: {
+          with_size: 70,
+          height_size: 70,
+        },
+      });
+    }
+    // setwindows__height(window.innerWidth);
+  }, [isMobile]);
+
   return (
     <>
       <main
@@ -63,8 +134,8 @@ const Navbar: React.FC<NavbarType> = function (props) {
           <Image
             onClick={handleClick_sandwich}
             className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer"
-            width={90}
-            height={90}
+            width={Logosize.sandwich.with_size}
+            height={Logosize.sandwich.height_size}
             src={image_1}
             alt="notFound"
           ></Image>
@@ -76,8 +147,8 @@ const Navbar: React.FC<NavbarType> = function (props) {
           <Image
             onClick={handleClick_pizza}
             className="drop-shadow-2xl"
-            width={80}
-            height={80}
+            width={Logosize.pizza.with_size}
+            height={Logosize.pizza.height_size}
             src={image_2}
             alt="notFound"
           ></Image>
@@ -89,9 +160,9 @@ const Navbar: React.FC<NavbarType> = function (props) {
         >
           <Image
             onClick={handleClick_drink}
-            className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer"
-            width={70}
-            height={70}
+            className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer max-[600px]:pt-3"
+            width={Logosize.drink.with_size}
+            height={Logosize.drink.height_size}
             src={image_3}
             alt="notFound"
           ></Image>

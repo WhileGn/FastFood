@@ -24,7 +24,7 @@ const MainContent: React.FC<entryValue> = function (props) {
   return (
     <>
       <div className=" God__content Main__div__content__child">
-        <div className=" main__Content shadow-[0px_0px_20px_10px_black] rounded-[60px]">
+        <div className=" main__Content shadow-[0px_0px_20px_10px_black] rounded-[60px]  max-[600px]:w-[20rem] m-auto   ">
           <div
             className=" __Content__   
             shadow-[0px_0px_30px_10px_black_inset]

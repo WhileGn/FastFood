@@ -20,7 +20,7 @@ export default function Firstview() {
           <div
             // className={roboto.className}
             // style={{ fontFamily: "Droid Sans" }}
-            className={`${roboto.className} keyframes__firsAnimationclass overflow-hidden text-center justify-items-center text-9xl font-bold  text-amber-400 select-none  `}
+            className={`${roboto.className} keyframes__firsAnimationclass overflow-hidden text-center justify-items-center max-[600px]:text-7xl text-9xl font-bold  text-amber-400 select-none  `}
           >
             welcome
           </div>

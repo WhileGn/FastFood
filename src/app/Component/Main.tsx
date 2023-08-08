@@ -13,6 +13,7 @@ import { Transform } from "stream";
 import { transform } from "typescript";
 import Image, { StaticImageData } from "next/image";
 import { log } from "console";
+import Footer from "./Footer";
 // interface IParallax {
 //   config: ConfigProp;
 //   horizontal: boolean;
@@ -148,18 +149,6 @@ export default function Mains() {
       console.log(variable_drink);
       console.log(variable_sandwich);
       console.log(variable_pizza);
-
-      // setcomponent(
-      //   MainData.map((data: any) => {
-      //     const typeOfdata = data.type;
-
-      //     return (
-      //       <div>
-      //         <MainContent data={data}></MainContent>
-      //       </div>
-      //     );
-      //   })
-      // );
     }
 
     setlodingState(false);
@@ -180,43 +169,10 @@ export default function Mains() {
     window.addEventListener("scroll", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
-  // const MaincontentComponentVarible = (
-  //   <>
-  //     {" "}
-  //     <div style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //     <div style={{ transform: `translateX(-${offsetY * 0.1}px)` }}>
-  //       <MainContent></MainContent>
-  //     </div>
-  //   </>
-  // );
+
   setTimeout(() => {
     setbackground("background__images");
   }, 2000);
-  // const testfechdata = async function () {
-  //   const testfetch__data = await mongo_API();
-  //   console.log(testfetch__data);
-  // };
-  // testfechdata();
 
   const ref_sandwich: any = useRef(null);
   const ref_pizza: any = useRef(null);
@@ -260,11 +216,11 @@ export default function Mains() {
       with_size: 400,
       height_size: 400,
     },
-    ref_pizza: {
+    pizza: {
       with_size: 370,
       height_size: 370,
     },
-    ref_drink: {
+    drink: {
       with_size: 350,
       height_size: 350,
     },
@@ -277,11 +233,11 @@ export default function Mains() {
           with_size: 300,
           height_size: 300,
         },
-        ref_pizza: {
+        pizza: {
           with_size: 270,
           height_size: 270,
         },
-        ref_drink: {
+        drink: {
           with_size: 250,
           height_size: 250,
         },
@@ -293,77 +249,78 @@ export default function Mains() {
           with_size: 400,
           height_size: 400,
         },
-        ref_pizza: {
+        pizza: {
           with_size: 370,
           height_size: 370,
         },
-        ref_drink: {
+        drink: {
           with_size: 350,
           height_size: 350,
         },
       });
     }
-    setwindows__height(window.innerWidth);
+    // setwindows__height(window.innerWidth);
   }, [isMobile]);
   console.log(windows__height);
 
   return (
     <>
       {animationBoolianState && (
-        <div
-          // style={styleState}
-          className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
-        >
-          <div className="Main__Navbar">
-            <Navbar refData={refs}></Navbar>
-            {/* <MainContent></MainContent> */}
-          </div>
-          <div className="Main__ContentComponent grid justify-center mt-48">
-            {lodingState && lodingVariable}
+        <div>
+          <div
+            // style={styleState}
+            className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
+          >
+            <div className="Main__Navbar">
+              <Navbar refData={refs}></Navbar>
+              {/* <MainContent></MainContent> */}
+            </div>
+            <div className="Main__ContentComponent grid justify-center mt-48">
+              {lodingState && lodingVariable}
 
-            {!lodingState && (
-              <div className="Main__div__content grid justify-center">
-                <div className="Main__image__FastFood justify-self-center  duration-300">
-                  <Image
-                    ref={ref_sandwich}
-                    className=" Main__div__content__child Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
-                    width={Logosize.sandwich.with_size}
-                    height={Logosize.sandwich.height_size}
-                    src={image_1}
-                    alt="notFound"
-                  ></Image>
+              {!lodingState && (
+                <div className="Main__div__content grid justify-center">
+                  <div className="Main__image__FastFood justify-self-center  duration-300">
+                    <Image
+                      ref={ref_sandwich}
+                      className=" Main__div__content__child Main__sandwich__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-10"
+                      width={Logosize.sandwich.with_size}
+                      height={Logosize.sandwich.height_size}
+                      src={image_1}
+                      alt="notFound"
+                    ></Image>
+                  </div>
+
+                  {component_sandwich}
+                  <div className="Main__image__FastFood justify-self-center  duration-300">
+                    <Image
+                      ref={ref_pizza}
+                      className=" Main__div__content__child Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
+                      width={Logosize.pizza.with_size}
+                      height={Logosize.pizza.height_size}
+                      src={image_2}
+                      alt="notFound"
+                    ></Image>
+                  </div>
+
+                  {component_pizza}
+                  <div className="Main__image__FastFood justify-self-center  duration-300">
+                    <Image
+                      ref={ref_drink}
+                      className=" Main__div__content__child Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
+                      width={Logosize.drink.with_size}
+                      height={Logosize.drink.height_size}
+                      src={image_3}
+                      alt="notFound"
+                    ></Image>
+                  </div>
+
+                  {component_drink}
                 </div>
+              )}
+            </div>
 
-                {component_sandwich}
-                <div className="Main__image__FastFood justify-self-center  duration-300">
-                  <Image
-                    ref={ref_pizza}
-                    className=" Main__div__content__child Main__pizza__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 "
-                    width={370}
-                    height={370}
-                    src={image_2}
-                    alt="notFound"
-                  ></Image>
-                </div>
-
-                {component_pizza}
-                <div className="Main__image__FastFood justify-self-center  duration-300">
-                  <Image
-                    ref={ref_drink}
-                    className=" Main__div__content__child Main__drink__image padi drop-shadow-[30px_30px_18px_black]  justify-self-center  duration-300 mb-12"
-                    width={350}
-                    height={350}
-                    src={image_3}
-                    alt="notFound"
-                  ></Image>
-                </div>
-
-                {component_drink}
-              </div>
-            )}
-          </div>
-
-          {/* <Parallax>
+            {/* <Parallax>
             <ParallaxLayer>
               <h1>welcome to my project</h1>
             </ParallaxLayer>
@@ -371,6 +328,8 @@ export default function Mains() {
               <h1>its my project</h1>
             </ParallaxLayer>
           </Parallax> */}
+          </div>
+          <Footer></Footer>
         </div>
       )}
     </>
