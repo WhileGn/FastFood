@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useIntersectionObserver } from "usehooks-ts";
 
-const Footer: React.FC = function () {
+export default function Footer() {
   const [render_0, setrender_0] = useState(false);
 
   const ref_0 = useRef<HTMLDivElement | null>(null);
@@ -32,6 +32,6 @@ const Footer: React.FC = function () {
       </div>
     </>
   );
-};
+}
 
-export default Footer;
+// export default Footer;

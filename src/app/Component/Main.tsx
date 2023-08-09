@@ -259,7 +259,6 @@ export default function Mains() {
         },
       });
     }
-    // setwindows__height(window.innerWidth);
   }, [isMobile]);
   console.log(windows__height);
 
