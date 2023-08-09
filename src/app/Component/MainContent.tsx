@@ -42,7 +42,7 @@ const MainContent: React.FC<entryValue> = function (props) {
             >
               {data.name}
             </div>
-            <div className="whatis__Content text-[#FAF2A1] p-6  text-center max-[600px]:text-sm">
+            <div className="whatis__Content text-[#FAF2A1] p-6  text-center max-[600px]:text-base">
               {" "}
               {data.about}
             </div>

@@ -326,12 +326,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f08c00;
+  background-color: #301c00;
 }
 
 /* Styling the handle (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background-color: #49cded;
+  background-color: rgb(255, 219, 188);
   border-radius: 10px;
 
   /* padding: 10px; */
@@ -351,6 +351,22 @@ body {
 
 .Main__image__FastFood:hover {
   scale: 1.1;
+}
+.Main__image__FastFood {
+  animation: Main__image__FastFood__FirstLoan 0.7s;
+  animation-iteration-count: inherit;
+}
+
+@keyframes Main__image__FastFood__FirstLoan {
+  0% {
+    scale: 0.1;
+  }
+  80% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
 @keyframes Main__FoodImage__image {
@@ -387,13 +403,13 @@ body {
 }
 
 .Footer__address {
-  animation: Footer__address__animation 1.8s;
+  animation: Footer__address__animation 2s;
   /* animation-delay: 3s; */
   animation-iteration-count: initial;
   filter: drop-shadow(0px 5px 5px);
 }
 .Footer__number {
-  animation: Footer__number__animation 1.8s;
+  animation: Footer__number__animation 2s;
   /* animation-delay: 3s; */
   animation-iteration-count: initial;
   filter: drop-shadow(0px 5px 5px);
@@ -427,39 +443,28 @@ body {
   }
 }
 .Footer__top {
-  animation: Footer__top__animationi 2s;
+  animation: Footer__top__animationi 1.8s;
   animation-iteration-count: inherit;
-  height: 20px;
+  height: 30px;
 }
 @keyframes Footer__top__animationi {
   0% {
     /* opacity: 0; */
     width: 10%;
-    height: 300px;
+    height: 10px;
     /* background-color: black; */
     /* transform: translate(-900px, 0px); */
     border-radius: 70px;
-    background-color: black;
+    /* background-color: white; */
   }
-  20% {
-    background-color: #571c93;
-  }
-  35% {
-    background-color: #4f2280;
-  }
-  50% {
-    background-color: #371e57;
-  }
-  65% {
-    background-color: #291d3e;
-  }
-  80% {
-    background-color: #242133;
+
+  90% {
+    width: 90%;
   }
 
   100% {
     /* opacity: 1; */
-    background-color: black;
+    /* background-color: black; */
     width: 100%;
   }
 }

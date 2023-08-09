@@ -17,7 +17,7 @@ export default function Footer() {
   }, [isVisible_0]);
   return (
     <>
-      <div ref={ref_0} className="Main__foter  h-[55vh] ">
+      <div ref={ref_0} className="Main__foter  h-[55vh] overflow-hidden ">
         {render_0 && (
           <div>
             <div className=" Footer__top   bg-black justify-center m-auto"></div>
@@ -26,7 +26,7 @@ export default function Footer() {
                 <div className="Footer__address text-white text-5xl drop-shadow-2xl font-bold max-[600px]:text-2xl">
                   address : 1609 Elk Creek Road
                 </div>
-                <div className="Footer__number text-white text-5xl font-bold max-[600px]:text-2xl">
+                <div className="Footer__number text-white text-5xl font-bold max-[600px]:text-2xl pb-8">
                   number : +770-462-4257
                 </div>
               </div>
