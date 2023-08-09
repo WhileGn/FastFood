@@ -17,18 +17,22 @@ export default function Footer() {
   }, [isVisible_0]);
   return (
     <>
-      <div
-        ref={ref_0}
-        className="Main__foter bg-black  border-t-[20px] border-solid  border-red-50"
-      >
-        <div className="Footer w-[100%] h-[60vh]   grid justify-center text-center items-center">
-          <div className="text-white text-5xl drop-shadow-2xl font-bold max-[600px]:text-2xl">
-            address : 1609 Elk Creek Road
+      <div ref={ref_0} className="Main__foter  h-[55vh] ">
+        {render_0 && (
+          <div>
+            <div className=" Footer__top   bg-black justify-center m-auto"></div>
+            <div className="foter bg-[#000000]   border-solid  border-red-50">
+              <div className="Footer w-[100%] h-[55vh]   grid justify-center text-center items-center">
+                <div className="Footer__address text-white text-5xl drop-shadow-2xl font-bold max-[600px]:text-2xl">
+                  address : 1609 Elk Creek Road
+                </div>
+                <div className="Footer__number text-white text-5xl font-bold max-[600px]:text-2xl">
+                  number : +770-462-4257
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="text-white text-5xl font-bold max-[600px]:text-2xl">
-            number : +770-462-4257
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
