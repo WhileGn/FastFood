@@ -18,8 +18,6 @@ const MainContent: React.FC<entryValue> = function (props) {
     price: prop.price,
     about: prop.about == undefined ? "" : prop.about,
   };
-  console.log(prop);
-  console.log(data);
 
   return (
     <>

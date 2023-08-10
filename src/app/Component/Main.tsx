@@ -14,21 +14,7 @@ import { transform } from "typescript";
 import Image, { StaticImageData } from "next/image";
 import { log } from "console";
 import Footer from "./Footer";
-// interface IParallax {
-//   config: ConfigProp;
-//   horizontal: boolean;
-//   busy: boolean;
-//   space: number;
-//   offset: number;
-//   current: number;
-//   controller: Controller<{ scroll: number }>;
-//   layers: Set<IParallaxLayer>;
-//   container: React.MutableRefObject<any>;
-//   content: React.MutableRefObject<any>;
-//   scrollTo(offset: number): void;
-//   update(): void;
-//   stop(): void;
-// }
+
 export default function Mains() {
   const [animationBoolianState, setanimationBoolianState] = useState(false);
 
@@ -188,20 +174,16 @@ export default function Mains() {
       setIsMobile(event.matches);
     }
 
-    // Check initial viewport size
     handleViewportChange(mediaQuery);
 
-    // Add listener for viewport changes
     mediaQuery.addEventListener("change", handleViewportChange);
 
-    // Clean up the listener when the component unmounts
     return () => {
       mediaQuery.removeEventListener("change", handleViewportChange);
     };
   }, []);
 
   const [windows__height, setwindows__height] = useState(0);
-  // const handlerScroll = () => setoffsetY(window.innerWidth);
 
   const mediaQuery = window.matchMedia("(max-width: 600px)");
 
@@ -209,7 +191,6 @@ export default function Mains() {
     window.addEventListener("", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
-  // const handlerScroll = () => setoffsetY(window.pageYOffset);
 
   const [Logosize, setLogosize] = useState<any>({
     sandwich: {
@@ -242,7 +223,6 @@ export default function Mains() {
           height_size: 250,
         },
       });
-      console.log("imgwork");
     } else {
       setLogosize({
         sandwich: {
@@ -267,12 +247,10 @@ export default function Mains() {
       {animationBoolianState && (
         <div>
           <div
-            // style={styleState}
             className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
           >
             <div className="Main__Navbar">
               <Navbar refData={refs}></Navbar>
-              {/* <MainContent></MainContent> */}
             </div>
             <div className="Main__ContentComponent grid justify-center mt-48">
               {lodingState && lodingVariable}
@@ -318,15 +296,6 @@ export default function Mains() {
                 </div>
               )}
             </div>
-
-            {/* <Parallax>
-            <ParallaxLayer>
-              <h1>welcome to my project</h1>
-            </ParallaxLayer>
-            <ParallaxLayer>
-              <h1>its my project</h1>
-            </ParallaxLayer>
-          </Parallax> */}
           </div>
           <Footer></Footer>
         </div>

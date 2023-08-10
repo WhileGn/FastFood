@@ -13,7 +13,6 @@ type NavbarType = {
 };
 const Navbar: React.FC<NavbarType> = function (props) {
   const ref_img = props.refData;
-  // console.log(refimg);
 
   const [navbaranimation, setnavbaranimation] = useState();
   const [offsetY, setoffsetY] = useState(0);
@@ -60,13 +59,10 @@ const Navbar: React.FC<NavbarType> = function (props) {
       setIsMobile(event.matches);
     }
 
-    // Check initial viewport size
     handleViewportChange(mediaQuery);
 
-    // Add listener for viewport changes
     mediaQuery.addEventListener("change", handleViewportChange);
 
-    // Clean up the listener when the component unmounts
     return () => {
       mediaQuery.removeEventListener("change", handleViewportChange);
     };
@@ -102,7 +98,6 @@ const Navbar: React.FC<NavbarType> = function (props) {
           height_size: 50,
         },
       });
-      // console.log("imgwork");
     } else {
       setLogosize({
         sandwich: {
@@ -119,7 +114,6 @@ const Navbar: React.FC<NavbarType> = function (props) {
         },
       });
     }
-    // setwindows__height(window.innerWidth);
   }, [isMobile]);
 
   return (
@@ -127,10 +121,7 @@ const Navbar: React.FC<NavbarType> = function (props) {
       <main
         className={`${main__navbar__animation} fixed z-50    duration-[1.5s]  Main_Navbar h-[5rem]   drop-shadow-2xl  mx-auto grid    grid-cols-3 justify-items-center items-center select-none `}
       >
-        <div
-          // href={"Route/sandwich"}
-          className="Main_Navbar__items __sandwich__"
-        >
+        <div className="Main_Navbar__items __sandwich__">
           <Image
             onClick={handleClick_sandwich}
             className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer"
@@ -140,10 +131,7 @@ const Navbar: React.FC<NavbarType> = function (props) {
             alt="notFound"
           ></Image>
         </div>
-        <div
-          // href={"Route/pizza"}
-          className="Main_Navbar__items __pizza__ hover:scale-150 duration-300 cursor-pointer"
-        >
+        <div className="Main_Navbar__items __pizza__ hover:scale-150 duration-300 cursor-pointer">
           <Image
             onClick={handleClick_pizza}
             className="drop-shadow-2xl"
@@ -154,10 +142,7 @@ const Navbar: React.FC<NavbarType> = function (props) {
           ></Image>
         </div>
 
-        <div
-          // href={"Route/drink"}
-          className="Main_Navbar__items __drink__ mb-5"
-        >
+        <div className="Main_Navbar__items __drink__ mb-5">
           <Image
             onClick={handleClick_drink}
             className="drop-shadow-2xl hover:scale-150 duration-300 cursor-pointer max-[600px]:pt-3"
