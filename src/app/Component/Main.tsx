@@ -131,10 +131,6 @@ export default function Mains() {
           );
         })
       );
-
-      console.log(variable_drink);
-      console.log(variable_sandwich);
-      console.log(variable_pizza);
     }
 
     setlodingState(false);
@@ -182,10 +178,6 @@ export default function Mains() {
       mediaQuery.removeEventListener("change", handleViewportChange);
     };
   }, []);
-
-  const [windows__height, setwindows__height] = useState(0);
-
-  const mediaQuery = window.matchMedia("(max-width: 600px)");
 
   useEffect(() => {
     window.addEventListener("", handlerScroll);
@@ -240,14 +232,13 @@ export default function Mains() {
       });
     }
   }, [isMobile]);
-  console.log(windows__height);
 
   return (
     <>
       {animationBoolianState && (
         <div>
           <div
-            className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-screen`}
+            className={`select-none pt-1 ${background} bg-white keyframes__MainAnimation relative  w-screen h-auto min-h-[101vh]`}
           >
             <div className="Main__Navbar">
               <Navbar refData={refs}></Navbar>
